@@ -1,10 +1,13 @@
-import _ from "underscore";
-import express from "express";
-import { nameRoutes, responses } from "../constants/index.js";
-import jwt from "jsonwebtoken";
+const _ = require("underscore");
+const express = require("express");
 
-import { verifyToken } from "../middleware/middleware.js";
-import FAVORITES_ANIMALS from "../data/favoritesAnimals.json" assert { type: "json" };
+const responses = require("../constants/error.constants.js");
+const nameRoutes = require("../constants/nameRoutes.constants.js");
+
+const jwt = require("jsonwebtoken");
+
+const verifyToken = require("../middleware/middleware.js");
+const FAVORITES_ANIMALS = require("../data/favoritesAnimals.json");
 
 const router = express.Router();
 const code = Object.keys(responses);
@@ -25,7 +28,7 @@ router.get(nameRoutes.DEFAULT, verifyToken, async (request, response) => {
       }
     });
   } catch (error) {
-    throw new Error(error);
+    response.send("Error");
   }
 });
 
@@ -62,7 +65,7 @@ router.post(nameRoutes.DEFAULT, verifyToken, async (request, response) => {
       response.status(200).json(FAVORITES_ANIMALS);
     });
   } catch (error) {
-    throw new Error(error);
+    response.send("Error");
   }
 });
 
@@ -83,8 +86,8 @@ router.delete(nameRoutes.DEFAULT, verifyToken, async (request, response) => {
       response.json(FAVORITES_ANIMALS);
     });
   } catch (error) {
-    throw new Error(error);
+    response.send("Error");
   }
 });
 
-export { router };
+module.exports = router;

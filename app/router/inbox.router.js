@@ -1,9 +1,12 @@
-import _ from "underscore";
-import express from "express";
-import jwt from "jsonwebtoken";
-import { nameRoutes, responses } from "../constants/index.js";
-import { verifyToken } from "../middleware/middleware.js";
-import USERS from "../data/users.json" assert { type: "json" };
+const _ = require("underscore");
+const express = require("express");
+
+const jwt = require("jsonwebtoken");
+const responses = require("../constants/error.constants.js");
+const nameRoutes = require("../constants/nameRoutes.constants.js");
+
+const verifyToken = require("../middleware/middleware.js");
+const USERS = require("../data/users.json");
 
 const router = express.Router();
 const code = Object.keys(responses);
@@ -22,8 +25,8 @@ router.get(nameRoutes.DEFAULT_ID, verifyToken, async (request, response) => {
       response.status(200).json(contactUser);
     });
   } catch (error) {
-    throw new Error(error);
+    response.send("Error");
   }
 });
 
-export { router };
+module.exports = router;

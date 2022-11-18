@@ -1,7 +1,9 @@
-import cors from "cors";
-import express from "express";
-import morgan from "morgan";
-import { routerApi } from "./router/router.js";
+const cors = require("cors");
+
+const express = require("express");
+
+const morgan = require("morgan");
+const routerApi = require("./router/router.js");
 
 const app = express();
 
@@ -13,10 +15,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.get("/", (request, response) => {
-  response.send("");
+  response.send("Hi i am GEORGE");
 });
-
 routerApi(app);
-app.listen(port, () => {
-  console.log("mi port " + port);
-});
+app.listen(port);

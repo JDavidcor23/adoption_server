@@ -1,4 +1,4 @@
-export function verifyToken(request, response, next) {
+function verifyToken(request, response, next) {
   const bearHeader = request.headers["authorization"];
   if (typeof bearHeader !== "undefined") {
     bearHeader.split(" ")[1];
@@ -8,3 +8,4 @@ export function verifyToken(request, response, next) {
     response.status(403).json({ resp: "Invalidated credentials verifyToken" });
   }
 }
+module.exports = verifyToken;

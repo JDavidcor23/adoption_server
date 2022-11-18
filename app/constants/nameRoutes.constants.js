@@ -1,4 +1,4 @@
-export const nameRoutes = {
+const nameRoutes = {
   DEFAULT: "/",
   USER: "/user",
   LOGIN: "/login",
@@ -9,3 +9,4 @@ export const nameRoutes = {
   ANIMALS: "/animals",
   FAVORITES_ANIMALS: "/favorites_animals",
 };
+module.exports = nameRoutes;

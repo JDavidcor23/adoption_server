@@ -1,7 +1,10 @@
-import express from "express";
-import jwt from "jsonwebtoken";
-import { nameRoutes, responses } from "../constants/index.js";
-import USERS from "../data/users.json" assert { type: "json" };
+const express = require("express");
+
+const jwt = require("jsonwebtoken");
+const responses = require("../constants/error.constants.js");
+const nameRoutes = require("../constants/nameRoutes.constants.js");
+
+const USERS = require("../data/users.json");
 
 const router = express.Router();
 const code = Object.keys(responses);
@@ -20,7 +23,7 @@ router.post(nameRoutes.DEFAULT, async (request, response) => {
       response.status(403).send({ error: { code: code[0] } });
     }
   } catch (error) {
-    throw new Error(error);
+    response.send("Error");
   }
 });
-export { router };
+module.exports = router;
