@@ -9,24 +9,24 @@ const code = Object.keys(responses);
 
 router.get(nameRoutes.DEFAULT, verifyToken, async (request, response) => {
   try {
-    jwt.verify(request.token, "secretKey", (err, authData) => {
-      if (err) {
-        response.status(403).json({ error: { code: code[1] } });
+    // jwt.verify(request.token, "secretKey", (err, authData) => {
+    //   if (err) {
+    //     response.status(403).json({ error: { code: code[1] } });
 
-        return;
-      }
-      response.json(
-        ANIMALS.map((animal) => {
-          return {
-            id: animal.id,
-            img: animal.img,
-            name: animal.name,
-            race: animal.race,
-            type: animal.type,
-          };
-        })
-      );
-    });
+    //     return;
+    //   }
+    // });
+    response.json(
+      ANIMALS.map((animal) => {
+        return {
+          id: animal.id,
+          img: animal.img,
+          name: animal.name,
+          race: animal.race,
+          type: animal.type,
+        };
+      })
+    );
   } catch (error) {
     throw new Error(error);
   }
