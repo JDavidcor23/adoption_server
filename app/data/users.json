@@ -1,0 +1,16 @@
+[
+  {
+    "profilePhoto": "https://res.cloudinary.com/dbtk64lp4/image/upload/v1667680854/2.0/360_F_444539901_2GSnvmTX14LELJ6edPudUsarbcytOEgj_n6ugpp.jpg",
+    "profileName": "Maria Dolores",
+    "email": "maria_dolores@gmail.com",
+    "password": "123456789",
+    "uuid": "2249692e-63a5-11ed-81ce-0242ac120002"
+  },
+  {
+    "profilePhoto": "https://res.cloudinary.com/dbtk64lp4/image/upload/v1667680854/2.0/209536-360-f-364211147-1qglvxv1tcq0ohz3fawufrtonzz8nq3e_gstksx.jpg",
+    "profileName": "Juan Jesus",
+    "email": "juan_jesus@gmail.com",
+    "password": "123456789",
+    "uuid": "33861e08-63a5-11ed-81ce-0242ac120002"
+  }
+]
