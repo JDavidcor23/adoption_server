@@ -14,8 +14,5 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.get("/", (request, response) => {
-  response.send("Hi i am GEORGE");
-});
 routerApi(app);
 app.listen(port);

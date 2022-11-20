@@ -1,12 +1,13 @@
 const express = require("express");
-const { login } = require("../functions");
+const { signup } = require("../functions");
 const nameRoutes = require("../constants/nameRoutes.constants.js");
+const encryptPassword = require("../middleware/signup.handler.js");
 
 const router = express.Router();
 
-router.post(nameRoutes.DEFAULT, async (request, response) => {
+router.post(nameRoutes.DEFAULT, encryptPassword, async (request, response) => {
   try {
-    login(request, response);
+    signup(request, response);
   } catch (error) {
     response.send("Error");
   }
